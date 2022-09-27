@@ -26,8 +26,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-- `git clone https://github.com/lekkercode-com/ember-ui`
-- `cd user-archiving`
+- `git clone --bare https://github.com/easyPEP/ember-ui-code-challenge.git`
+- `cd ember-ui-code-challenge`
 - `npm install`
 
 ## Running / Development
@@ -43,6 +43,9 @@ You will need the following things properly installed on your computer.
 
 ### Deploying
 
-Push your work to your own local git repository. (Change the origin to link to your own git repository.)
+To avoid forking the repo, create new Repository in your GitHub account and name it `ember-ui-code-challenge`.
 
-- git remote set-url origin http://github.com/your_username/your_repository
+Push the code to the newly created Github repo:
+
+- `git push --mirror https://github.com/exampleuser/ember-ui-code-challenge.git`
+
