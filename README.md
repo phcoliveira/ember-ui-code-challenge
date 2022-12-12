@@ -15,6 +15,7 @@ Push the code to the newly created Github repo:
 - Change the archived boolean's value with the button created.
 - Ensure that the archived value of the user changes when the button is clicked and yes is chosen in the confirmation. If they select "no" when asked if they are sure they would like to archive a user, the user should not be archived.
 - All tests must still pass after this functionality is added. (eslint, and ember tests)
+- implement with proper UI feedback like loading/error callbacks, e.g. with ember-concurrency.
 
 ## Useful information
 
