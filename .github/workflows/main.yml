@@ -1,6 +1,15 @@
 name: Ember
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   build:
@@ -17,12 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        run: npm install
-      - name: JavaScript Linting
-        run: npm run lint:js
-      - name: Template Linting
-        run: npm run lint:hbs
-      - name: npm test
+        run: npm ci
+      - name: Run Tests
+        # This command also uses lint for js and hbs files.
         run: npm test
         env:
           CI: true
