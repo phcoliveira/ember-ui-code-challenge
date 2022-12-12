@@ -1,31 +1,31 @@
-{{page-title 'User'}}
-  <div class="container has-text-centered">
-    <div class="column is-3 is-offset-4">
+{{page-title "User"}}
 
-      <LinkTo @route="users">
-        <button class="button mb-2" type="button">
-          Back to users
-        </button>
-      </LinkTo>
+<div class="container has-text-centered">
+  <div class="column is-3 is-offset-4">
 
-      <div class="user-profile">
+    <LinkTo @route="users" class="button mb-2">
+      Back to users
+    </LinkTo>
 
-        <figure class="avatar">
-          <img src={{@model.image}} width="256px" alt="User" />
-        </figure>
+    <div class="user-profile">
 
-        <p class="title has-text-white my-2">
-          {{@model.name}}
-        </p>
+      <figure class="avatar">
+        <img src={{@model.image}} width="256px" alt="User" />
+      </figure>
 
-        <p class="subtitle has-text-white my-2">
-          Example Value:
-          {{@model.value}}
-        </p>
+      <p class="title has-text-white my-2">
+        {{@model.name}}
+      </p>
 
-        {{!-- Place the component to archive/unarchive users here --}}
+      <p class="subtitle has-text-white my-2">
+        Example Value:
+        {{@model.value}}
+      </p>
 
-      </div>
+      {{! Place the component to archive/unarchive users here }}
+
     </div>
   </div>
+</div>
+
 {{outlet}}
