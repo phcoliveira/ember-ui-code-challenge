@@ -1,1 +1,8 @@
-<div data-test="user/archive-switch:root"></div>
+<button
+  class="button"
+  data-test-user-archive-switch="root"
+  type="button"
+  ...attributes
+>
+  {{if @user.archived "Unarchive" "Archive"}}
+</button>
