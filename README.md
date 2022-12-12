@@ -1,3 +1,12 @@
+
+### Deliver
+
+To avoid forking the repo, create new Repository in your GitHub account and name it `ember-ui-code-challenge`.
+
+Push the code to the newly created Github repo:
+
+- `git push --mirror https://github.com/exampleuser/ember-ui-code-challenge.git`
+
 ## Requirements
 
 - Add an "archive" button to all user profiles, with a confirmation prompt.
@@ -40,12 +49,3 @@ You will need the following things properly installed on your computer.
 
 - `ember test`
 - `ember test --server`
-
-### Deploying
-
-To avoid forking the repo, create new Repository in your GitHub account and name it `ember-ui-code-challenge`.
-
-Push the code to the newly created Github repo:
-
-- `git push --mirror https://github.com/exampleuser/ember-ui-code-challenge.git`
-
