@@ -6,21 +6,27 @@ export default class UserModel extends Model {
   @attr('string') image;
   @attr('string') name;
 
+  /**
+   * @description This task is responsible for toggling the instance property
+   * "archived" and saving the record.
+   *
+   * If the record is not persisted, then it won't be saved.
+   */
   toggleArchive = task({ drop: true }, async () => {
     const currentValue = this.archived;
-    let completed = false;
+    let mustRevertChanges = true;
 
     this.archived = !currentValue;
 
     try {
-      await this.save();
-      completed = true;
-    } catch (error) {
-      this.archived = currentValue;
-      throw error;
+      const mustPersist = !this.isNew;
+      if (mustPersist) {
+        await this.save();
+      }
+
+      mustRevertChanges = false;
     } finally {
-      // NOTE: In case the task was cancelled, the changes must be reverted.
-      if (!completed) {
+      if (mustRevertChanges) {
         this.archived = currentValue;
       }
     }
