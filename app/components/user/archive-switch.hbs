@@ -1,10 +1,73 @@
 <button
-  class="button"
+  class="button is-responsive is-warning {{if this.isLoading "is-loading"}}"
   data-test-user-archive-switch="root"
-  disabled={{not @user.toggleArchive.isIdle}}
+  disabled={{this.isLoading}}
   type="button"
   ...attributes
-  {{on "click" (perform @user.toggleArchive)}}
+  {{on "click" this.onToggleArchive}}
 >
   {{if @user.archived "Unarchive" "Archive"}}
 </button>
+
+{{#if this.confirmationAlertDialogIsOpen}}
+  <Ui::AlertDialog
+    aria-labelledby="#confirmation-alert-dialog-label"
+    aria-describedby="#confirmation-alert-dialog-description"
+    data-test-user-archive-switch="confirmation-alert-dialog"
+  >
+    <strong id="confirmation-alert-dialog-label">Attention</strong>
+
+    <p id="confirmation-alert-dialog-description">Are you sure you want to
+      {{if @user.archived "unarchive" "archive"}}
+      this user?</p>
+
+    <div class="columns mt-4">
+      <div class="column">
+        <button
+          class="button is-responsive is-fullwidth is-danger"
+          data-test-user-archive-switch="refuse"
+          type="button"
+          {{on "click" this.onRefuse}}
+        >
+          No
+        </button>
+      </div>
+
+      <div class="column">
+        <button
+          class="button is-responsive is-fullwidth is-success"
+          data-test-user-archive-switch="accept"
+          type="button"
+          {{on "click" this.onAccept}}
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </Ui::AlertDialog>
+{{/if}}
+
+{{#if this.errorAlertDialogIsOpen}}
+  <Ui::AlertDialog
+    aria-labelledby="#error-alert-dialog-label"
+    aria-describedby="#error-alert-dialog-description"
+    data-test-user-archive-switch="error-alert-dialog"
+  >
+    <strong id="error-alert-dialog-label">Warning!</strong>
+
+    <p id="error-alert-dialog-description">Your changes were not saved.</p>
+
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <button
+          class="button is-responsive is-fullwidth is-success"
+          data-test-user-archive-switch="acknowledge-error"
+          type="button"
+          {{on "click" this.onAcknowledgeError}}
+        >
+          Understood
+        </button>
+      </div>
+    </div>
+  </Ui::AlertDialog>
+{{/if}}
