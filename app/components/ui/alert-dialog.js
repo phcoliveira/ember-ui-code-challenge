@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
-export default class UiModalDialogComponent extends Component {
+export default class UiAlertDialogComponent extends Component {
   @action
   onInsertModal(element) {
     document.querySelector('#main-layout')?.setAttribute('inert', 'true');

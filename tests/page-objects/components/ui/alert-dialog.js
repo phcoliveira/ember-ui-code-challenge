@@ -1,10 +1,10 @@
 import { PageObject } from 'fractal-page-object';
 
 function dataTestFor(elementName) {
-  return `[data-test-ui-modal-dialog="${elementName}"]`;
+  return `[data-test-ui-alert-dialog="${elementName}"]`;
 }
 
-export class UiModalDialogPO extends PageObject {
+export class UiAlertDialogPO extends PageObject {
   constructor(elementName) {
     super(elementName ?? dataTestFor('root'));
   }

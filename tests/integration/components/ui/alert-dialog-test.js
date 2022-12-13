@@ -2,13 +2,13 @@ import { clearRender, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-import { UiModalDialogPO } from '../../../page-objects/components/ui/modal-dialog';
+import { UiAlertDialogPO } from '../../../page-objects/components/ui/alert-dialog';
 
-const page = new UiModalDialogPO();
+const page = new UiAlertDialogPO();
 const mainLayoutId = 'main-layout';
 const mainLayoutSelector = `#${mainLayoutId}`;
 
-module('Integration | Component | ui/modal-dialog', function (hooks) {
+module('Integration | Component | ui/alert-dialog', function (hooks) {
   setupRenderingTest(hooks);
 
   let mainLayoutElement;
@@ -26,9 +26,9 @@ module('Integration | Component | ui/modal-dialog', function (hooks) {
 
   test('it renders as an alert dialog', async function (assert) {
     await render(hbs`
-      <Ui::ModalDialog data-test="spread">
+      <Ui::AlertDialog data-test="spread">
         <div id="test-subject"></div>
-      </Ui::ModalDialog>
+      </Ui::AlertDialog>
     `);
 
     assert.strictEqual(
