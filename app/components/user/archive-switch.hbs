@@ -1,8 +1,10 @@
 <button
   class="button"
   data-test-user-archive-switch="root"
+  disabled={{not @user.toggleArchive.isIdle}}
   type="button"
   ...attributes
+  {{on "click" (perform @user.toggleArchive)}}
 >
   {{if @user.archived "Unarchive" "Archive"}}
 </button>

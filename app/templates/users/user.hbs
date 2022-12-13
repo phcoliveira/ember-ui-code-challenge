@@ -18,14 +18,15 @@
       </p>
 
       <p class="subtitle has-text-white my-2">
-        Example Value:
-        {{@model.value}}
+        {{if
+          @model.archived
+          "This user is archived."
+          "This user is not archived."
+        }}
       </p>
 
-      {{! Place the component to archive/unarchive users here }}
+      <User::ArchiveSwitch @user={{@model}} />
 
     </div>
   </div>
 </div>
-
-{{outlet}}
