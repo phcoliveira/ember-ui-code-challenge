@@ -1,9 +1,25 @@
 <ModalDialog
-  @containerClass="p-4"
+  @containerClass="p-0"
   @hasOverlay={{true}}
   @translucentOverlay={{true}}
 >
-  <div data-test-ui-modal-dialog="root" ...attributes>
+  {{!
+    FIXME: This component can be further developed in regards to a11y.
+    Currently, it trusts the consumer to pass the following attributes.
+    - aria-labelledby
+    - aria-describedby
+    That is not ideal. Such attributes could be enforced here with the
+    usage of dedicated component arguments, for example.
+  }}
+  <div
+    data-test-ui-modal-dialog="root"
+    class="p-4"
+    role="alertdialog"
+    aria-modal="true"
+    ...attributes
+    {{did-insert this.onInsertModal}}
+    {{will-destroy this.onRemoveModal}}
+  >
     {{yield}}
   </div>
 </ModalDialog>
