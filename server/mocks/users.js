@@ -1,6 +1,6 @@
 'use strict';
 
-const delay = process.env.NODE_ENV === 'dev' ? 300 : 1;
+const delay = 500;
 
 module.exports = function (app) {
   const express = require('express');
