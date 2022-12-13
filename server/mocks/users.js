@@ -25,6 +25,7 @@ module.exports = function (app) {
 
       res.status(204);
       res.send();
+      return;
     }
 
     res.status(404);
@@ -42,6 +43,7 @@ module.exports = function (app) {
 
     if (user) {
       res.send({ data: user });
+      return;
     }
 
     res.status(404);
